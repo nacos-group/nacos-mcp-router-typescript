@@ -274,14 +274,15 @@ const paymentResult = await router.useTool({
 
 ```
 src/
-├── index.ts                 # Application entry point
+├── index.ts                # Application entry point
 ├── router.ts               # MCP routing and tool registration
 ├── nacos_http_client.ts    # Nacos HTTP client
 ├── mcp_manager.ts          # MCP service management
 ├── router_types.ts         # Type definitions and utilities
-├── simpleSseServer.ts      # Simple SSE server implementation
 └── logger.ts               # Logging module
 test/                       # Test cases
+example/
+└── simpleSseServer.ts      # Simple SSE server implementation
 ```
 
 ### Build and Test
@@ -308,19 +309,7 @@ npm run type-check
 
 ### Docker Support
 
-```dockerfile
-FROM node:18-alpine
-
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --only=production
-
-COPY dist/ ./dist/
-COPY config/ ./config/
-
-EXPOSE 3000
-CMD ["node", "dist/index.js"]
-```
+[Dockerfile](./Dockerfile)
 
 ## Monitoring and Observability
 

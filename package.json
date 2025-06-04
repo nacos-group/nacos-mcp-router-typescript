@@ -3,6 +3,7 @@
   "version": "1.1.1",
   "description": "Nacos MCP Router TypeScript implementation",
   "main": "dist/index.js",
+  "type": "commonjs",
   "bin": {
     "nacos-mcp-router": "./dist/index.js"
   },
@@ -13,7 +14,8 @@
     "build": "rimraf dist && tsc && chmod +x dist/index.js",
     "start": "ts-node src/index.ts",
     "dev-stdio": "ts-node src/index.ts",
-    "dev-sse": "ts-node src/simpleSseServer.ts",
+    "dev-sse": "ts-node example/simpleSseServer.ts",
+    "dev-streamableHttp": "ts-node example/simpleStreamableHttpServer.ts",
     "test": "jest",
     "debug": "npx @modelcontextprotocol/inspector npx nacos-mcp-router"
   },
@@ -21,7 +23,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "zod": "^3.23.8",
     "@modelcontextprotocol/sdk": "^1.11.0",
     "@xenova/transformers": "^2.17.2",
     "axios": "^1.9.0",
@@ -29,12 +30,16 @@
     "express": "^5.1.0",
     "hnswlib-node": "^3.0.0",
     "winston": "^3.17.0",
-    "winston-daily-rotate-file": "^5.0.0"
+    "winston-daily-rotate-file": "^5.0.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/express": "^5.0.1",
-    "rimraf": "^5.0.5",
+    "@types/jest": "^29.5.14",
     "@types/node": "^20.11.24",
+    "jest": "^29.7.0",
+    "rimraf": "^5.0.5",
+    "ts-jest": "^29.3.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   }

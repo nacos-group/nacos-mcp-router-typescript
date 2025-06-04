@@ -25,6 +25,4 @@ type NacosMcpRouterConfig = RouterConfig;
 
 export type { NacosMcpRouterConfig };
 
-export default {
-    NacosMcpRouter: Router
-};
+export const NacosMcpRouter = Router;
