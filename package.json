@@ -2,17 +2,17 @@
   "name": "nacos-mcp-router",
   "version": "1.0.12",
   "description": "Nacos MCP Router TypeScript implementation",
-  "main": "dist/stdio.js",
+  "main": "dist/src/index.js",
   "bin": {
-    "nacos-mcp-router": "./dist/stdio.js"
+    "nacos-mcp-router": "./dist/src/index.js"
   },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "build": "rimraf dist && tsc && chmod +x dist/stdio.js",
-    "start": "ts-node src/stdio.ts",
-    "dev-stdio": "ts-node src/stdio.ts",
+    "build": "rimraf dist && tsc && chmod +x dist/src/index.js",
+    "start": "ts-node src/index.ts",
+    "dev-stdio": "ts-node src/index.ts",
     "dev-sse": "ts-node src/simpleSseServer.ts",
     "test": "jest",
     "debug": "npx @modelcontextprotocol/inspector npx nacos-mcp-router"
