@@ -1,4 +1,4 @@
-# Nacos MCP Router TypeScript
+# Nacos MCP Router TypeScript ![NPM Version](https://img.shields.io/npm/v/nacos-mcp-router) ![NPM Downloads](https://img.shields.io/npm/d18m/nacos-mcp-router)
 
 English | [中文](./README_zh.md)
 
@@ -54,9 +54,9 @@ Nacos MCP Router TypeScript is a sophisticated routing layer that integrates Nac
 ### Installation
 
 ```bash
-npm install nacos-mcp-router-typescript
+npm install nacos-mcp-router
 # or
-yarn add nacos-mcp-router-typescript
+yarn add nacos-mcp-router
 ```
 
 ### Basic Usage
@@ -79,7 +79,7 @@ Add to your MCP client configuration:
   "mcpServers": {
     "nacos-mcp-router": {
       "command": "npx",
-      "args": ["nacos-mcp-router-typescript"],
+      "args": ["nacos-mcp-router"],
       "env": {
         "NACOS_SERVER_ADDR": "localhost:8848",
         "NACOS_USERNAME": "nacos", 
@@ -94,7 +94,7 @@ Add to your MCP client configuration:
 3. **Programmatic Usage**
 
 ```typescript
-import { NacosMcpRouter } from 'nacos-mcp-router-typescript';
+import { NacosMcpRouter } from 'nacos-mcp-router';
 
 const router = new NacosMcpRouter({
   nacosConfig: {

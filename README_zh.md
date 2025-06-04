@@ -1,4 +1,4 @@
-# Nacos MCP Router TypeScript
+# Nacos MCP Router TypeScript ![NPM Version](https://img.shields.io/npm/v/nacos-mcp-router) ![NPM Downloads](https://img.shields.io/npm/d18m/nacos-mcp-router)
 
 [English](./README.md) | 中文
 
@@ -53,9 +53,9 @@ Nacos MCP Router TypeScript 是一个复杂的路由层，它将 Nacos 服务注
 ### 安装
 
 ```bash
-npm install nacos-mcp-router-typescript
+npm install nacos-mcp-router
 # 或
-yarn add nacos-mcp-router-typescript
+yarn add nacos-mcp-router
 ```
 
 ### 基本用法
@@ -78,7 +78,7 @@ export NACOS_NAMESPACE=public
   "mcpServers": {
     "nacos-mcp-router": {
       "command": "npx",
-      "args": ["nacos-mcp-router-typescript"],
+      "args": ["nacos-mcp-router"],
       "env": {
         "NACOS_SERVER_ADDR": "localhost:8848",
         "NACOS_USERNAME": "nacos", 
@@ -93,7 +93,7 @@ export NACOS_NAMESPACE=public
 3. **程序化使用**
 
 ```typescript
-import { NacosMcpRouter } from 'nacos-mcp-router-typescript';
+import { NacosMcpRouter } from 'nacos-mcp-router';
 
 const router = new NacosMcpRouter({
   nacosConfig: {
