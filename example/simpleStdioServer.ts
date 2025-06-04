@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 
-import { Router, RouterConfig } from './router';
-import { logger } from './logger';
+import { Router, RouterConfig } from '../src/router';
+import { logger } from '../src/logger';
 import { config } from './config';
-
 async function main() {
     try {
       const router = new Router(config as RouterConfig);

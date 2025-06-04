@@ -19,6 +19,6 @@
       "~/*": ["src/*"]
     }
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "example/simpleSseServer.ts", "example/simpleStdio.ts"],
   "exclude": ["node_modules"]
 } 
