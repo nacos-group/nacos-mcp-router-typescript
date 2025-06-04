@@ -4,13 +4,13 @@
   "description": "Nacos MCP Router TypeScript implementation",
   "main": "dist/index.js",
   "bin": {
-    "nacos-mcp-router": "./dist/src/index.js"
+    "nacos-mcp-router": "./dist/index.js"
   },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "build": "rimraf dist && tsc && chmod +x dist/src/index.js",
+    "build": "rimraf dist && tsc && chmod +x dist/index.js",
     "start": "ts-node src/index.ts",
     "dev-stdio": "ts-node src/index.ts",
     "dev-sse": "ts-node src/simpleSseServer.ts",
