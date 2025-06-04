@@ -79,7 +79,7 @@ Add to your MCP client configuration:
   "mcpServers": {
     "nacos-mcp-router": {
       "command": "npx",
-      "args": ["nacos-mcp-router"],
+      "args": ["nacos-mcp-router@latest"],
       "env": {
         "NACOS_SERVER_ADDR": "localhost:8848",
         "NACOS_USERNAME": "nacos", 
@@ -97,11 +97,10 @@ Add to your MCP client configuration:
 import { NacosMcpRouter } from 'nacos-mcp-router';
 
 const router = new NacosMcpRouter({
-  nacosConfig: {
+  nacos: {
     serverAddr: 'localhost:8848',
     username: 'nacos',
-    password: 'nacos',
-    namespace: 'public'
+    password: 'nacospassword',
   },
   logLevel: 'info'
 });
