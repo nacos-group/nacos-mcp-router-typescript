@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 import { SSEServerTransport } from '@modelcontextprotocol/sdk/server/sse.js';
 import { RouterConfig } from '../src/router';
 import { Router } from '../src/router';
-import { config } from './config';
+import { config } from '../src/config';
 import { logger } from '../src/logger';
 const app = express();
 app.use(express.json());

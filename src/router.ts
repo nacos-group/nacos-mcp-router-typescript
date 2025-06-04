@@ -17,11 +17,7 @@ export interface RouterConfig {
     username: string;
     password: string;
   };
-  mcp: {
-    host: string;
-    port: number;
-    authToken?: string;
-  };
+  logLevel: string;
 }
 
 interface ServiceInfo {

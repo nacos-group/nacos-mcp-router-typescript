@@ -2,17 +2,10 @@
 
 import { Router, RouterConfig } from './router';
 import { logger } from './logger';
-import 'dotenv/config';
+import { config } from './config';
 
 async function main() {
     try {
-        const config = {
-            nacos: {
-                serverAddr: process.env.NACOS_SERVER_ADDR || 'localhost:8848',
-                username: process.env.NACOS_USERNAME || "nacos",
-                password: process.env.NACOS_PASSWORD || "nacos_password",
-            },
-        };
         const router = new Router(config as RouterConfig);
         logger.info(`nacos mcp router start`);
         await router.start();
@@ -23,4 +16,15 @@ async function main() {
     }
 }
 
-main();
+// 只有当这个文件是主入口文件时才执行 main() 函数
+if (require.main === module) {
+    main();
+}
+
+type NacosMcpRouterConfig = RouterConfig;
+
+export type { NacosMcpRouterConfig };
+
+export default {
+    NacosMcpRouter: Router
+};

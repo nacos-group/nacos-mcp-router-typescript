@@ -2,7 +2,7 @@
 
 import { Router, RouterConfig } from '../src/router';
 import { logger } from '../src/logger';
-import { config } from './config';
+import { config } from '../src/config';
 async function main() {
     try {
       const router = new Router(config as RouterConfig);
