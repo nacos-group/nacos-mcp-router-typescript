@@ -16,7 +16,7 @@
     "dev-stdio": "ts-node src/index.ts",
     "dev-sse": "ts-node example/simpleSseServer.ts",
     "dev-streamableHttp": "ts-node example/simpleStreamableHttpServer.ts",
-    "test": "jest",
+    "test": "node --experimental-vm-modules ./node_modules/.bin/jest",
     "debug": "npx @modelcontextprotocol/inspector npx nacos-mcp-router"
   },
   "keywords": [],
@@ -31,7 +31,8 @@
     "hnswlib-node": "^3.0.0",
     "winston": "^3.17.0",
     "winston-daily-rotate-file": "^5.0.0",
-    "zod": "^3.23.8"
+    "zod": "^3.23.8",
+    "deepmerge": "^4.3.1"
   },
   "devDependencies": {
     "@types/express": "^5.0.1",

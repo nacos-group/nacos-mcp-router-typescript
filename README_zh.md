@@ -134,14 +134,9 @@ await router.start();
     "namespace": "public",
     "group": "MCP_GROUP"
   },
-  "mcp": {
-    "port": 3000,
-    "enableSSE": true
-  },
-  "logging": {
-    "level": "info",
-    "file": "logs/nacos-mcp-router.log"
-  }
+  "mode": "stdio",
+  "port": 3000,
+  "logLevel": "info"
 }
 ```
 

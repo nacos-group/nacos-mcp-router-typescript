@@ -120,7 +120,7 @@ await router.start();
 | `NACOS_NAMESPACE` | Nacos namespace | `public` |
 | `NACOS_GROUP` | Service group | `DEFAULT_GROUP` |
 | `LOG_LEVEL` | Logging level | `info` |
-| `MCP_PORT` | MCP server port | `3000` |
+| `PORT` | MCP server port | `3000` |
 
 ### Configuration File
 
@@ -135,16 +135,16 @@ Create a `nacos-mcp-config.json` file:
     "namespace": "public",
     "group": "MCP_GROUP"
   },
-  "mcp": {
-    "port": 3000,
-    "enableSSE": true
-  },
-  "logging": {
-    "level": "info",
-    "file": "logs/nacos-mcp-router.log"
-  }
+  "mode": "stdio",
+  "port": 3000, // common port, used if ssePort/streamablePort are not specified
+  "logLevel": "info"
 }
 ```
+
+- `mode`: startup mode, supports `stdio` (default), `sse`, `streamable`
+- `port`: common port, used if ssePort/streamablePort are not specified
+- `ssePort`: port for SSE mode
+- `streamablePort`: port for Streamable HTTP mode
 
 ## Available Tools
 

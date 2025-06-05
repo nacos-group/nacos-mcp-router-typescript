@@ -11,7 +11,7 @@ app.use(express.json());
 const transports: Record<string, SSEServerTransport> = {};
 
 // SSE endpoint for establishing the stream
-app.get('/mcp', async (req: Request, res: Response) => {
+app.get('/sse', async (req: Request, res: Response) => {
   try {
     // Create a new SSE transport for the client
     // The endpoint for POST messages is '/messages'

@@ -3,7 +3,7 @@ import { describe, it, expect } from '@jest/globals';
 
 const nacosAddr = 'localhost:8848';
 const userName = 'nacos';
-const passwd = 'P4vUkh2pyS';
+const passwd = 'uhn5FD0Itp';
 
 describe('Nacos HTTP Client Tests', () => {
   it('should successfully fetch MCP list from Nacos', async () => {

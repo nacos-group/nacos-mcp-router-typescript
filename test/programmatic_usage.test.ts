@@ -1,7 +1,7 @@
 import { NacosMcpRouter, type NacosMcpRouterConfig } from '../src/index';
 import { describe, it, expect, beforeAll, afterAll } from '@jest/globals';
 
-describe('NacosMcpRouter Programmatic Usage', () => {
+describe('NacosMcpRouter Programmatic Usage In Stdio Mode', () => {
   let router: InstanceType<typeof NacosMcpRouter>;
 
   beforeAll(() => {
@@ -9,7 +9,7 @@ describe('NacosMcpRouter Programmatic Usage', () => {
       nacos: {
         serverAddr: 'localhost:8848',
         username: 'nacos',
-        password: 'P4vUkh2pyS'
+        password: 'uhn5FD0Itp'
       },
       logLevel: 'info'
     });
