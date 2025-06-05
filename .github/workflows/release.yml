@@ -10,7 +10,7 @@ jobs:
     name: Build and Publish to NPM
     environment:
       name: npm
-      url: https://www.npmjs.com/package/nacos-mcp-router-typescript
+      url: https://www.npmjs.com/package/nacos-mcp-router
     permissions:
       contents: read
       id-token: write
@@ -76,6 +76,6 @@ jobs:
             ## Changes in ${{ github.ref_name }}
             
             - View the [changelog](CHANGELOG.md) for detailed changes
-            - NPM package: https://www.npmjs.com/package/nacos-mcp-router-typescript
+            - NPM package: https://www.npmjs.com/package/nacos-mcp-router
           draft: false
           prerelease: false
