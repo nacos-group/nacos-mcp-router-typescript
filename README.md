@@ -1,4 +1,4 @@
-# Nacos MCP Router TypeScript
+# Nacos MCP Router TypeScript ![NPM Version](https://img.shields.io/npm/v/nacos-mcp-router) ![NPM Downloads](https://img.shields.io/npm/d18m/nacos-mcp-router)
 
 English | [中文](./README_zh.md)
 
@@ -54,9 +54,9 @@ Nacos MCP Router TypeScript is a sophisticated routing layer that integrates Nac
 ### Installation
 
 ```bash
-npm install nacos-mcp-router-typescript
+npm install nacos-mcp-router
 # or
-yarn add nacos-mcp-router-typescript
+yarn add nacos-mcp-router
 ```
 
 ### Basic Usage
@@ -79,7 +79,7 @@ Add to your MCP client configuration:
   "mcpServers": {
     "nacos-mcp-router": {
       "command": "npx",
-      "args": ["nacos-mcp-router-typescript"],
+      "args": ["nacos-mcp-router@latest"],
       "env": {
         "NACOS_SERVER_ADDR": "localhost:8848",
         "NACOS_USERNAME": "nacos", 
@@ -94,14 +94,13 @@ Add to your MCP client configuration:
 3. **Programmatic Usage**
 
 ```typescript
-import { NacosMcpRouter } from 'nacos-mcp-router-typescript';
+import { NacosMcpRouter } from 'nacos-mcp-router';
 
 const router = new NacosMcpRouter({
-  nacosConfig: {
+  nacos: {
     serverAddr: 'localhost:8848',
     username: 'nacos',
-    password: 'nacos',
-    namespace: 'public'
+    password: 'nacospassword',
   },
   logLevel: 'info'
 });
@@ -121,7 +120,7 @@ await router.start();
 | `NACOS_NAMESPACE` | Nacos namespace | `public` |
 | `NACOS_GROUP` | Service group | `DEFAULT_GROUP` |
 | `LOG_LEVEL` | Logging level | `info` |
-| `MCP_PORT` | MCP server port | `3000` |
+| `PORT` | MCP server port | `3000` |
 
 ### Configuration File
 
@@ -136,16 +135,16 @@ Create a `nacos-mcp-config.json` file:
     "namespace": "public",
     "group": "MCP_GROUP"
   },
-  "mcp": {
-    "port": 3000,
-    "enableSSE": true
-  },
-  "logging": {
-    "level": "info",
-    "file": "logs/nacos-mcp-router.log"
-  }
+  "mode": "stdio",
+  "port": 3000, // common port, used if ssePort/streamablePort are not specified
+  "logLevel": "info"
 }
 ```
+
+- `mode`: startup mode, supports `stdio` (default), `sse`, `streamable`
+- `port`: common port, used if ssePort/streamablePort are not specified
+- `ssePort`: port for SSE mode
+- `streamablePort`: port for Streamable HTTP mode
 
 ## Available Tools
 
@@ -274,14 +273,15 @@ const paymentResult = await router.useTool({
 
 ```
 src/
-├── index.ts                 # Application entry point
+├── index.ts                # Application entry point
 ├── router.ts               # MCP routing and tool registration
 ├── nacos_http_client.ts    # Nacos HTTP client
 ├── mcp_manager.ts          # MCP service management
 ├── router_types.ts         # Type definitions and utilities
-├── simpleSseServer.ts      # Simple SSE server implementation
 └── logger.ts               # Logging module
 test/                       # Test cases
+example/
+└── simpleSseServer.ts      # Simple SSE server implementation
 ```
 
 ### Build and Test
@@ -308,19 +308,7 @@ npm run type-check
 
 ### Docker Support
 
-```dockerfile
-FROM node:18-alpine
-
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --only=production
-
-COPY dist/ ./dist/
-COPY config/ ./config/
-
-EXPOSE 3000
-CMD ["node", "dist/index.js"]
-```
+[Dockerfile](./Dockerfile)
 
 ## Monitoring and Observability
 
