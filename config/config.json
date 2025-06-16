@@ -6,7 +6,7 @@
       "namespace": "public",
       "group": "MCP_GROUP"
     },
-    "mode": "streamable",
+    "mode": "sse",
     "port": 3000,
     "logLevel": "info"
   }

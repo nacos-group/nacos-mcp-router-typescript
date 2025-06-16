@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:lts-alpine
 
 WORKDIR /app
 COPY package*.json ./
@@ -8,4 +8,4 @@ COPY dist/ ./dist/
 COPY config/ ./config/
 
 EXPOSE 3000
-CMD ["node", "dist/index.js", "--mode", "sse", "--config", "config/config.json"]
+CMD ["node", "dist/index.js", "--config", "config/config.json"]
